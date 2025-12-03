@@ -104,7 +104,7 @@ investigate?**
 * **No, I don't have information about a specific request yet.**  Move on.
 
 Next question: **does the problem appear to be reproducible?**  Try reproducing
-the problem with the https://github.com/joyent/node-manta[node-manta]
+the problem with the https://github.com/TritonDataCenter/node-manta[node-manta]
 command-line tools (e.g., `mls`).  You can use the `-v` flag and redirect stderr
 to the https://github.com/trentm/node-bunyan[bunyan] command to see request and
 response headers, like this:
@@ -187,7 +187,7 @@ one has `x-server-name: 60771e58-2ad0-4c50-8b23-86b72f9307f8` and `x-request-id:
 
 **If the problem isn't quite so easily reproducible, but you suspect it still
 affects a variety of requests,** you can use
-https://github.com/joyent/manta-mlive[manta-mlive] to generate more requests and
+https://github.com/TritonDataCenter/manta-mlive[manta-mlive] to generate more requests and
 collect debug output for all of them.  For `mlive`, you'll want to set
 `LOG_LEVEL` in the environment to generate the debug logging and you'll likely
 want to redirect stderr to a file that you can search through later:
@@ -250,7 +250,7 @@ identify an `x-server-name` and `x-request-id` and then see
 
 **Real-time logs** contain data from the current hour.  These are typically
 stored as regular files within each zone.  The specific file used varies by type
-of zone.  See the https://joyent.github.io/manta/#logs[Operator Guide] for
+of zone.  See the https://tritondatacenter.github.io/manta/#logs[Operator Guide] for
 details.  The `manta-oneach` command can be used as a low-level way to scan
 these real-time logs.  For example, a common way to count recent 500-level
 errors in webapi logs is:
@@ -673,7 +673,7 @@ that case, you need to scan all of them for a given time.  That might involve
 === Understanding a load balancer log entry
 
 The load balancer logs in a plaintext format described in the
-https://github.com/joyent/haproxy-1.5/blob/master/doc/haproxy-en.txt[haproxy
+https://github.com/TritonDataCenter/haproxy-1.5/blob/master/doc/haproxy-en.txt[haproxy
 documentation].  (The haproxy documentation is also plaintext so it's not
 possible to link directly to the right section, but look for the section called
 "Log format".)  Our load balancer logs these through syslog, which prepends a
@@ -684,7 +684,7 @@ Here's an example entry from our load balancer logs:
 
     2018-12-05T18:32:01+00:00 42563f8d-4d61-4045-ab87-c71560388399 haproxy[65158]: ::ffff:72.2.115.97:42121 [05/Dec/2018:18:30:01.859] https secure_api/be6 2/0/0/-1/120005 502 245 - - SH-- 247/192/240/19/0 0/0 "GET /thoth/stor/thoth?limit=1024 HTTP/1.1"
 
-We have a tool called https://github.com/joyent/node-haproxy-log[haplog] for
+We have a tool called https://github.com/TritonDataCenter/node-haproxy-log[haplog] for
 converting our haproxy log entries into JSON.  Often, the easiest way to filter
 and summarize these log entries is to pass the log through `haplog`, use `json`
 to extract the relevant fields, and then use `grep` or `awk` to summarize.  We
@@ -1323,7 +1323,7 @@ more than the maximum expected size, but that produces
 <<_request_has_exceeded_bytes,a different error>>.)
 
 In determining the maximum object size for an upload request,
-https://apidocs.joyent.com/manta/api.html#PutObject[Manta supports two kinds of
+https://apidocs.tritondatacenter.com/manta/api.html#PutObject[Manta supports two kinds of
 uploads]: fixed-size and streaming.  A **fixed-size** upload is one that
 specifies the size of the object using the `content-length` request header.
 Manta uses this value directly as the maximum object size.  A **streaming**
@@ -1423,22 +1423,22 @@ different conditions.  See the help output for details.
 
 === Locating metadata for an object
 
-See http://joyent.github.io/manta/#locating-object-data[Locating object data] in
+See http://tritondatacenter.github.io/manta/#locating-object-data[Locating object data] in
 the Manta Operator's Guide.
 
 === Locating actual data for an object
 
-See http://joyent.github.io/manta/#locating-object-data[Locating object data] in
+See http://tritondatacenter.github.io/manta/#locating-object-data[Locating object data] in
 the Manta Operator's Guide.
 
 === Locating a particular server
 
-See http://joyent.github.io/manta/#locating-servers[Locating servers] in the
+See http://tritondatacenter.github.io/manta/#locating-servers[Locating servers] in the
 Manta Operator's Guide.
 
 === Locating a particular zone
 
-See http://joyent.github.io/manta/#locating-manta-component-zones[Locating Manta
+See http://tritondatacenter.github.io/manta/#locating-manta-component-zones[Locating Manta
 component zones] in the Manta Operator's Guide.
 
 === Locating a particular database shard
