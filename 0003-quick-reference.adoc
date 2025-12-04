@@ -410,7 +410,7 @@ context you can run the tool.
 |Shows running stats about Moray RPC activity
 
 |https://github.com/TritonDataCenter/pgsqlstat[`pgsqlstat` tools]
-|"postgres" zones (https://mnx.atlassian.net/browse/MANATEE-364[need to be copied in as needed])
+|"postgres" zones (https://smartos.org/bugview/MANATEE-364[need to be copied in as needed])
 |No
 |Report on PostgreSQL activity
 
