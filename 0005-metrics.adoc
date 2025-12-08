@@ -5,7 +5,7 @@
 Real-time metrics provided by Manta form the basis of situational awareness,
 particularly during incident response.  Understanding the metrics provided by
 the various components internal to Manta requires
-http://joyent.github.io/manta/#components-of-manta[a basic understanding of these
+http://tritondatacenter.github.io/manta/#components-of-manta[a basic understanding of these
 components] and how they work together.
 
 This section discusses a number of useful metrics exposed by Manta.  When we say
@@ -259,7 +259,7 @@ expose them.  There are several caveats:
 |PostgreSQL
 |pgstatsmon
 |Various
-|A number of https://www.postgresql.org/docs/9.6/monitoring-stats.html[stats exposed by PostgreSQL] are collected and exposed by pgstatsmon.  For the authoritative set, see https://github.com/joyent/pgstatsmon/blob/master/lib/queries.js[the pgstatsmon source].  These stats are named according to their PostgreSQL names, so for example the `xact_commit` stat in the `pg_stat_database` view is exposed as `pg_stat_database_xact_commit`.  Labels are used to identify the PostgreSQL instance, which can often be used to break out by shard.
+|A number of https://www.postgresql.org/docs/9.6/monitoring-stats.html[stats exposed by PostgreSQL] are collected and exposed by pgstatsmon.  For the authoritative set, see https://github.com/TritonDataCenter/pgstatsmon/blob/master/lib/queries.js[the pgstatsmon source].  These stats are named according to their PostgreSQL names, so for example the `xact_commit` stat in the `pg_stat_database` view is exposed as `pg_stat_database_xact_commit`.  Labels are used to identify the PostgreSQL instance, which can often be used to break out by shard.
 
 |TCP stack
 |CMON (in Triton)

@@ -2,10 +2,10 @@ This document is intended for operators and developers of Manta seeking to bette
 
 You may find other documentation helpful:
 
-* https://github.com/joyent/manta[Manta GitHub Project]
-* http://joyent.github.io/manta/[Manta Operator's Guide]
-* https://apidocs.joyent.com/manta/[Manta End User Documentation]
-* https://github.com/joyent/manta-tools-deck[Manta Tools (slide deck)]
+* https://github.com/TritonDataCenter/manta[Manta GitHub Project]
+* http://tritondatacenter.github.io/manta/[Manta Operator's Guide]
+* https://apidocs.tritondatacenter.com/manta/[Manta End User Documentation]
+* https://github.com/TritonDataCenter/manta-tools-deck[Manta Tools (slide deck)]
 
 This document is organized into a few broad sections:
 

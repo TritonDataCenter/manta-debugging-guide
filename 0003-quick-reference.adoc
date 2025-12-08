@@ -88,7 +88,7 @@ In order to frame HTTP requests and responses, one of two modes must be used:
   indicates that the body will be sent in chunks, each of which is preceded by
   a size
 
-https://apidocs.joyent.com/manta/api.html#PutObject[Manta treats these two modes a little differently].  If an upload request has a `content-length`, then Manta ensures that the storage nodes chosen to store the data have enough physical space available.  Requests with `transfer-encoding: chunked` are called _streaming uploads_.  For these uploads, a maximum content length is assumed by the server that's used to validate that storage nodes contain enough physical space.  https://apidocs.joyent.com/manta/api.html#PutObject[The maximum content length for a streaming upload can be overridden using the `max-content-length` header.]
+https://apidocs.tritondatacenter.com/manta/api.html#PutObject[Manta treats these two modes a little differently].  If an upload request has a `content-length`, then Manta ensures that the storage nodes chosen to store the data have enough physical space available.  Requests with `transfer-encoding: chunked` are called _streaming uploads_.  For these uploads, a maximum content length is assumed by the server that's used to validate that storage nodes contain enough physical space.  https://apidocs.tritondatacenter.com/manta/api.html#PutObject[The maximum content length for a streaming upload can be overridden using the `max-content-length` header.]
 
 See also the next section on
 <<_validating_the_contents_of_requests_and_responses>>.
@@ -371,7 +371,7 @@ XXX that should include 503 from 'No storage nodes available for this request'
 
 === Debugging tools quick reference
 
-See also the https://github.com/joyent/manta-tools-deck[Manta Tools Overview].
+See also the https://github.com/TritonDataCenter/manta-tools-deck[Manta Tools Overview].
 
 Many of these tools have manual pages or sections in this guide about how to use
 them.  You can generally view the manual page with `man TOOLNAME` in whatever
@@ -409,8 +409,8 @@ context you can run the tool.
 |No
 |Shows running stats about Moray RPC activity
 
-|https://github.com/joyent/pgsqlstat[`pgsqlstat` tools]
-|"postgres" zones (https://jira.joyent.us/browse/MANATEE-364[need to be copied in as needed])
+|https://github.com/TritonDataCenter/pgsqlstat[`pgsqlstat` tools]
+|"postgres" zones (https://smartos.org/bugview/MANATEE-364[need to be copied in as needed])
 |No
 |Report on PostgreSQL activity
 
@@ -454,7 +454,7 @@ context you can run the tool.
 |Yes
 |Shows running stats related to zone-wide memory usage
 
-|https://github.com/joyent/mdb_v8/blob/master/docs/usage.md[`mdb_v8`]
+|https://github.com/TritonDataCenter/mdb_v8/blob/master/docs/usage.md[`mdb_v8`]
 |Anywhere
 |No
 |Inspect JavaScript-level state in core files from Node.js processes.
@@ -463,7 +463,7 @@ context you can run the tool.
 
 === Glossary of jargon
 
-See also: https://eng.joyent.com/ras/#_glossary[Glossary of hardware terms from
+See also: https://eng.tritondatacenter.com/ras/#_glossary[Glossary of hardware terms from
 Joyent's RAS specifications].
 
 [cols="2"]
@@ -503,7 +503,7 @@ Joyent's RAS specifications].
 |_Service_ can refer to a SAPI service (see below), an SMF service (see below), or it may be used more generally to describe almost any useful function provided by a software component.  As a verb (e.g., "this process is servicing requests"), it usually means "to process [requests]".
 
 |service (SAPI)
-|Within https://mo.joyent.com/docs/sapi/master/#overview[SAPI (the Triton facility for managing configuration and deployment of cloud applications like Manta)], a _service_ refers to a collection of instances providing similar functionality.  It usually describes a type of component (e.g., "storage" or "webapi") that may have many instances.  These instances usually share images and configuration, and within SAPI, the _service_ is the place where such configuration is stored.
+|Within https://mo.tritondatacenter.com/docs/sapi/master/#overview[SAPI (the Triton facility for managing configuration and deployment of cloud applications like Manta)], a _service_ refers to a collection of instances providing similar functionality.  It usually describes a type of component (e.g., "storage" or "webapi") that may have many instances.  These instances usually share images and configuration, and within SAPI, the _service_ is the place where such configuration is stored.
 
 |service (SMF)
 |Within the operating system, an SMF _service_ is a piece of configuration that usually describes long-running programs that should be automatically restarted under various failure conditions.  For example, we define an SMF service for "mahi-v2" (our authenticationc ache) so that the operating system automatically starts the service upon boot and restarts it if the process exits or dumps core.  (Within SMF, it's actually _instances_ of a service that get started, stopped, restarted, and so on.  For many services, there's only one "default" instance, and the terms are often used interchangeably.  Usually someone will say "I restarted the mahi-v2 service" rather than "I restarted the sole instance of the mahi-v2 service".  However, for some services (notably "muskie", "moray", "electric-moray", and "binder") we do deploy multiple instances, and it may be important to be more precise (e.g., "three of the muskie instances in this zone are in maintenance").  See `smf(5)`.
